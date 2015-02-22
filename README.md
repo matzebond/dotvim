@@ -8,14 +8,17 @@ will create a symlink from ~/.vimrc to ~/.vim/vimrc and update plugins
 - ~/.vim/install.sh
 
 install ycm
-- sudo apt-get install build-essential cmake
-- sudo apt-get install python-dev
+    - sudo apt-get install build-essential cmake
+    - sudo apt-get install python-dev
 
 download clang or "sudo apt-get install libclang1-3.5"
-- mkdir ~/ycm_build && cd ~/ycm_build
+    - mkdir ~/ycm_build && cd ~/ycm_build
 
-- cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=PATH_TO_THE_LOADED_LLVM . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/
+enter the path of the llvm+clang
+    - cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=PATH_TO_THE_LOADED_LLVM . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/
+
 or when using system libs
-- cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/
+    - cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/
 
-- make ycm_support_libs
+finaly
+    - make ycm_support_libs
