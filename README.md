@@ -20,5 +20,5 @@ enter the path of the llvm+clang
 or when using system libs
 - cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/
 
-finaly
+finally
 - make ycm_support_libs
