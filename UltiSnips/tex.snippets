@@ -1,0 +1,33 @@
+priority -49
+
+snippet math "mathemathische formel im text"
+\\( ${VISUAL}${1}\\)${0}
+endsnippet
+
+snippet Math "mathemathische formel seperat"
+\\[ ${VISUAL}${1}\\]${0}
+endsnippet
+
+snippet rel "\mathbb{R} reelle Zahlen"
+\mathbb{R}
+endsnippet
+
+snippet up "\usepackage" b
+\usepackage[${1:options}]{${2:package}}${0}
+endsnippet
+
+snippet underline "\underline{}"
+\underline{${VISUAL}${1}} ${0}
+endsnippet
+
+snippet betrag "betrag x <=> |x|"
+|${1:x}|${0}
+endsnippet
+
+snippet left "zeichen mehrzeilig"
+\left(\begin{array}{cl}${1:Erste Zeile}\\\\${2:Zweite Zeile}\end{array}\right)
+endsnippet
+
+snippet top "mehzeiliger text übereinander"
+\begin{array}{cl}\mbox{${1:Erste Zeile}}\\\\\mbox{${2:Zweite Zeile}}\end{array}
+endsnippet
