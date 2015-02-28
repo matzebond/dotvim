@@ -11,31 +11,29 @@ call vundle#begin()
 " Vundle manage itself
 Plugin 'gmarik/Vundle.vim'
 
-" General Plugins
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/matchit' " extended % for various langs
+Plugin 'godlygeek/tabular'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lervag/vim-latex'
-
-" Programming General
-Plugin 'vim-scripts/tComment'
+Plugin 'helino/vim-json'
+" Plugin 'greyblake/vim-preview'
+Plugin 'tomtom/tcomment_vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'scrooloose/syntastic.git'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
-" C++
-Plugin 'Mizuchi/STL-Syntax'
+Plugin 'Mizuchi/STL-Syntax' " C++ 11/14 syntax
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -131,7 +129,7 @@ if has('gui_running')
   set guioptions-=l " hide left scrollbar
   set guioptions-=L " hide situationally left scrollbar
   set guioptions-=T " Remove the toolbar
-  set guioptions-=m " 
+  set guioptions-=m
   set guioptions=ci
   set guifont=Ubuntu\ Mono\ 12 "PragmataPro\ 10
   " set lines=999 columns=999 " Maximize gvim window.
