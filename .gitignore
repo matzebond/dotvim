@@ -1,2 +1,5 @@
 bundle/*
 tmp/*
+eclim
+plugin/eclim.vim
+.ycm_extra_conf.pyc
