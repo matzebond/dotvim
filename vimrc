@@ -23,7 +23,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tpope/vim-fugitive'
-Plugin 'lervag/vim-latex'
+Plugin 'lervag/vimtex'
 Plugin 'helino/vim-json'
 " Plugin 'greyblake/vim-preview'
 Plugin 'tomtom/tcomment_vim'
@@ -131,6 +131,7 @@ if has('gui_running')
   set guioptions=ci
   set guifont=Ubuntu\ Mono\ 12 "PragmataPro\ 10
   " set lines=999 columns=999 " Maximize gvim window.
+  set lines=40 columns=100 " Maximize gvim window.
 endif
 " }}} UI Changes
 
@@ -204,10 +205,10 @@ vnoremap <leader>s :s/
 nnoremap <leader>v :e ~/.vimrc<CR>
 nnoremap <leader>V :tabnew ~/.vimrc<CR>
 
-nnoremap <silent> <Leader>lc :VimLatexCompile<cr>
-nnoremap <silent> <Leader>lv :call latex#view()<cr>
-nnoremap <silent> <Leader>le :VimLatexError<cr>
-nnoremap <silent> <Leader>lt :call latex#toc#toogle()<cr>
+nnoremap <silent> <Leader>lc :VimtexCompileToggle<cr>
+nnoremap <silent> <Leader>lv :VimtexView<cr>
+nnoremap <silent> <Leader>le :VimtexError<cr>
+nnoremap <silent> <Leader>lt :VimtexTocToogle<cr>
 
 nnoremap <silent> <F3> :YcmCompleter GoToDeclaration<CR>
 nnoremap <silent> <F4> :YcmCompleter GoToDefinition<CR>
@@ -325,17 +326,17 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_complete_in_comments = 1
 " }}} YouCompleteMe
 
-" vim-latex {{{
-let g:latex_enabled = 1
-" let g:latex_viewer = 'mupdf -r 95'
-let g:latex_viewer = 'evince'
-let g:latex_mappings_enabled= 0
-let g:latex_fold_enabled = 0
-let g:latex_indent_enabled = 0
-" let g:latex_motion_enabled = 1
-" let g:latex_motion_matchparen = 1
-let g:latex_complete_enabled = 0
-" }}} vim-latex
+" vimtex {{{
+let g:vimtex_enabled = 1
+" let g:vimtex_viewer = 'mupdf -r 95'
+let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_mappings_enabled= 0
+let g:vimtex_fold_enabled = 0
+let g:vimtex_indent_enabled = 0
+" let g:vimtex_motion_enabled = 1
+" let g:vimtex_motion_matchparen = 1
+let g:vimtex_complete_enabled = 0
+" }}} vimtex
 
 " eclim {{{
 let g:EclimCompletionMethod = 'omnifunc'
