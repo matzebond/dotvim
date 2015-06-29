@@ -11,7 +11,12 @@ call vundle#begin()
 " Vundle manage itself
 Plugin 'gmarik/Vundle.vim'
 
+" Visual
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
+" Plugin 'oblitum/rainbow'
+Plugin 'junegunn/rainbow_parentheses.vim'
+
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
@@ -20,6 +25,7 @@ Plugin 'tmhedberg/matchit' " extended % for various langs
 Plugin 'godlygeek/tabular'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'tpope/vim-fugitive'
@@ -120,6 +126,7 @@ set showmatch " got to next match
 set t_Co=16 " conflicting background in vim solarized
 set background=dark
 colorscheme solarized
+
 highlight clear LineNr " Current line number row will have same background color in relative mode
 
 if has('gui_running')
@@ -341,4 +348,18 @@ let g:vimtex_complete_enabled = 0
 " eclim {{{
 let g:EclimCompletionMethod = 'omnifunc'
 " }}} eclim
+
+" rainbow {{{
+" let g:rainbow_active = 1
+"
+" let g:rainbow_load_separately = [
+"     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+"     \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+"     \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+"     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+"     \ ]
+"
+" let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+" let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+" }}} rainbow
 " }}} Plugin Config
