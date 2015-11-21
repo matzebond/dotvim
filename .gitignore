@@ -1,5 +1,6 @@
-bundle/*
-tmp/*
+bundle
+autoload
+!.gitkeep
 eclim
 plugin/eclim.vim
 .ycm_extra_conf.pyc

@@ -1,59 +1,73 @@
 " vim:fdm=marker
 
-" Vundle {{{
+let s:MYVIMDIR="~/.vim"
+
 set nocompatible
-filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+filetype plugin indent on
 
-" Vundle manage itself
-Plugin 'gmarik/Vundle.vim'
+" vim-plug {{{
+
+" Install Vim-Plug at startup if it isn't installed {{{
+if !filereadable(expand(s:MYVIMDIR . "/autoload/plug.vim"))
+  echo "Installing Vim-Plug and plugins, "
+  echo "restart Vim to finish installation."
+  silent! call mkdir(expand(s:MYVIMDIR . "/autoload"), 'p')
+  silent! execute "!curl -fLo ".expand(s:MYVIMDIR . "/autoload/plug.vim")
+        \ ." https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  au VimEnter * PlugInstall
+endif
+
+call plug#begin(expand(s:MYVIMDIR . "/bundle"))
 
 " Visual
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'chriskempson/base16-vim'
-" Plugin 'oblitum/rainbow'
-Plugin 'junegunn/rainbow_parentheses.vim'
+Plug 'altercation/vim-colors-solarized'
+" Plug 'oblitum/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'bling/vim-airline'
+Plug 'mhinz/vim-Startify' " nice startup screen
 
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tmhedberg/matchit' " extended % for various langs
-Plugin 'godlygeek/tabular'
-Plugin 'rhysd/clever-f.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'majutsushi/tagbar'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'tpope/vim-fugitive'
-Plugin 'lervag/vimtex'
-Plugin 'helino/vim-json'
-" Plugin 'greyblake/vim-preview'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'derekwyatt/vim-fswitch'
-Plugin 'Valloric/YouCompleteMe'
-" Plugin 'scrooloose/syntastic.git'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'Mizuchi/STL-Syntax' " C++ 11/14 syntax
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'tmhedberg/matchit' " extended % for various langs
+Plug 'godlygeek/tabular'
+Plug 'rhysd/clever-f.vim'
+Plug 'helino/vim-json'
+" Plug 'greyblake/vim-preview'
+Plug 'tomtom/tcomment_vim'
+Plug 'Raimondi/delimitMate'
+Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/syntastic'
+" snippets depends on ultisnips
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'jlanzarotta/bufexplorer'
 
-" All of your Plugins must be added before the following line
-call vundle#end() " required
-" }}} Vundle
+" Toogable panels
+Plug 'sjl/gundo.vim'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" C/C++
+Plug 'justinmk/vim-syntax-extra' " improved C syntax highlighting
+Plug 'Mizuchi/STL-Syntax' " C++ 11/14 syntax
+Plug 'derekwyatt/vim-fswitch'
+
+" Tex/Latex
+Plug 'lervag/vimtex'
+
+call plug#end()
+" }}}
 
 " Init {{{
-" Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set ttyfast
 let mapleader="," " set <Leader> to ,
 
-if has('autocmd')
-  filetype plugin indent on    " required
-endif
+let g:tex_flavor="latex" " recognize .tex as latex files
 
 if has('syntax') && !exists('g:syntax_on')
   syntax enable
@@ -64,7 +78,7 @@ endif
 
 " VIM Options {{{
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set history=1000 " expand history normal 20
+set history=10000 " expand history normal 20
 set clipboard=unnamed "the clipboard is the default yank, past ... register
 set hidden " Allow buffer switching without saving
 set autoread " auto change files modified outside of vim
@@ -72,8 +86,8 @@ set ignorecase
 set smartcase  " case-sensitive if search contains an uppercase character
 set hlsearch " highlights the search results
 set incsearch " Find as you type search
-" set splitbelow
-set splitright
+set gdefault " substitutes all by default (:s///g is default)
+set splitright " or set splitbelow
 set tabstop=4 " size of a hard tabstop
 set softtabstop=4
 set shiftwidth=4 " size of an "indent"
@@ -136,9 +150,10 @@ if has('gui_running')
   set guioptions-=T " Remove the toolbar
   set guioptions-=m
   set guioptions=ci
-  set guifont=Ubuntu\ Mono\ 12 "PragmataPro\ 10
+  " set guifont=Ubuntu\ Mono\ 12 "PragmataPro\ 10
+  set guifont=Hack\ 10
   " set lines=999 columns=999 " Maximize gvim window.
-  set lines=40 columns=100 " Maximize gvim window.
+  set lines=40 columns=100
 endif
 " }}} UI Changes
 
@@ -155,10 +170,10 @@ endif
 " }}} Autocmd
 
 " Key Maps {{{
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
 nnoremap <F1> <ESC>
 inoremap <F1> <Esc> " get out of insertmode
 noremap <F1> :call MapF1()<CR> " toogle help otherwise
@@ -234,21 +249,6 @@ nnoremap <silent> <Leader>ok :FSAbove<cr>
 nnoremap <silent> <Leader>oK :FSSplitAbove<cr>
 nnoremap <silent> <Leader>oj :FSBelow<cr>
 nnoremap <silent> <Leader>oJ :FSSplitBelow<cr>
-
-"BreakLine: Return TRUE if in the middle of {} or () in INSERT mode
-" function! BreakLine()
-"   if (mode() == 'i')
-"     return ((getline(".")[col(".")-2] == '{' && getline(".")[col(".")-1] == '}') ||
-"           \(getline(".")[col(".")-2] == '(' && getline(".")[col(".")-1] == ')'))
-"   else
-"     return 0
-"   endif
-" endfun
-
-" Remap <Enter> to split the line and insert a new line in between if
-" BreakLine return True
-" inoremap <expr> <CR> BreakLine() ? "<CR><ESC>O" : "<CR>"
-" }}} Key Maps
 
 " Plugin Config {{{
 " airline {{{
@@ -339,7 +339,7 @@ let g:vimtex_enabled = 1
 let g:vimtex_view_general_viewer = 'evince'
 let g:vimtex_mappings_enabled= 0
 let g:vimtex_fold_enabled = 0
-let g:vimtex_indent_enabled = 0
+let g:vimtex_indent_enabled = 1
 " let g:vimtex_motion_enabled = 1
 " let g:vimtex_motion_matchparen = 1
 let g:vimtex_complete_enabled = 0

@@ -4,8 +4,8 @@ dotvim
 install from git
 - git clone git://github.com/matzebond/dotvim.git ~/.vim
 
-will create a symlink from ~/.vimrc to ~/.vim/vimrc and update plugins
-- ~/.vim/install.sh
+create symlink from ~/.vimrc to ~/.vim/vimrc
+- ln -s ~/.vim/vimrc ~/.vimrc
 
 install ycm
 - sudo apt-get install build-essential cmake
@@ -21,4 +21,4 @@ or when using system libs
 - cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/
 
 finally
-- make ycm_support_libs
+- cmake --build . --target ycm_support_libs --config Release
