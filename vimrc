@@ -108,6 +108,7 @@ set expandtab " always uses spaces instead of tab characters
 " set scrolloff=4 " Minimum lines to keep above and below cursor
 set foldmethod=indent " code on same indent is in one fold
 set foldlevel=99
+set linebreak " break lines at 'breakat'
 
 if has('mouse')
   set mouse=
@@ -125,17 +126,21 @@ set writebackup
 set undofile
 set history=100
 set undolevels=100
-" }}} VIM Options
 
-" UI Changes {{{
-set spell " spell checking on
-set wildmode =longest:full,full
 set wildmenu " <Tab> in menu in vim console brings up suggestions
-set wildignore=*.o,*.obj,*.bak,*.exe,*.d
+set wildmode =longest:full,full
+set wildignore+=.hg,.git,svn
+set wildignore+=*.aux,*.out,*.toc " Latex intermediadte files
+set wildignore+=*.o,*.obj,*.bak,*.exe,*.d
 set wildignore+=*DS_Store*,log/**,tmp/**
 set wildignore+=*.png,*.jpg,*.gif,*.pdf
 set wildignore+=*.class
 set wildignorecase
+
+set spell " spell checking on
+" }}} VIM Options
+
+" UI Changes {{{
 set number " show the current line as total number not 0
 " set relativenumber " shows numbers relative to current line SLOW SCROLLING?
 " set cursorline " highlights the current line SLOW SCROLLING!!
