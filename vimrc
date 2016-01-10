@@ -200,19 +200,28 @@ function! MapF1()
   endif
 endfunction
 
+" change to current buffer's directory
+nnoremap <leader>cd :cd <c-r>=expand("%:p:h")<cr><cr>
+
 " remap change window
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
+" resize windows
+noremap <silent> <c-left>  :verical resize -1<cr>
+noremap <silent> <c-up>    :resize  +1<cr>
+noremap <silent> <c-down>  :resize  -1<cr>
+noremap <silent> <c-right> :verical resize +1<cr>
+
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
 noremap k gk
-nnoremap 0 g0
-nnoremap $ g$
+" nnoremap 0 g0
+" nnoremap $ g$
 
-" Visual shifting (does not exit Visual mode)
+" Visual shifting does not exit Visual mode
 vnoremap < <gv
 vnoremap > >gv
 
@@ -223,6 +232,19 @@ nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" format text with Q
+vnoremap Q gq
+nnoremap Q gqap
+
+nnoremap <leader><space> :nohlsearch<cr>
+
+" make tab movement
+nnoremap <tab> %
+vnoremap <tab> %
+
+" write with sudo
+cnoremap w!! w !sudo tee % > /dev/null
+
 "create a new line cmd mode without going to insert
 nnoremap <leader>k O<esc>
 nnoremap <leader>j o<esc>
@@ -232,6 +254,7 @@ nnoremap <leader>l a <esc>
 "Break a line into two and retain cursor position
 nnoremap <leader>b i<cr><esc>k$
 
+" quick safe quit and search
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>s :%s/
