@@ -8,7 +8,7 @@ filetype plugin indent on
 
 " vim-plug {{{
 
-" Install Vim-Plug at startup if it isn't installed {{{
+" Install Vim-Plug at startup if it isn't installed
 if !filereadable(expand(s:MYVIMDIR . "/autoload/plug.vim"))
   echo "Installing Vim-Plug and plugins, "
   echo "restart Vim to finish installation."
@@ -27,20 +27,28 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-Startify' " nice startup screen
 
-Plug 'kien/ctrlp.vim'
+" tpope
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+" :%Subvert/facilit{y,ies}/bulding{,s}
+" word jump MixedCase (crm) camelCase (crc) snake_case (crs) UPPERE_CASE (cru)
+Plug 'tpope/vim-abolish'
+
+" util
 Plug 'tmhedberg/matchit' " extended % for various langs
 Plug 'godlygeek/tabular'
-Plug 'rhysd/clever-f.vim'
+" Plug 'rhysd/clever-f.vim'
 Plug 'helino/vim-json'
 " Plug 'greyblake/vim-preview'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" programming
 Plug 'tomtom/tcomment_vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
 " snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'jlanzarotta/bufexplorer'
 
 " Toogable panels
 Plug 'sjl/gundo.vim'
@@ -50,6 +58,7 @@ Plug 'scrooloose/nerdtree'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 
 " C/C++
 Plug 'justinmk/vim-syntax-extra' " improved C syntax highlighting
