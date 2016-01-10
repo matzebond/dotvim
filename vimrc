@@ -172,15 +172,25 @@ endif
 " }}} UI Changes
 
 " Autocmd {{{
-if has("autocmd")
-  augroup source_reload
-    autocmd!
+augroup source_reload
+    au!
     " Source the vimrc file after saving it
-    autocmd bufwritepost vimrc source $MYVIMRC
-    autocmd bufwritepost .vimrc source $MYVIMRC
+    au bufwritepost vimrc source $MYVIMRC
+    au bufwritepost .vimrc source $MYVIMRC
     " autocmd bufwritepost gimrc source $MYGVIMRC
-  augroup END
-endif
+augroup END
+
+augroup spell_au
+    au!
+    au FileType latex,tex setlocal spelllang=de
+augroup end
+
+augroup filetype_tabsize
+    au!
+    au FileType make    :setlocal ts=8 sts=8 sw=8 noet
+    au FileType vim     :setlocal ts=2 sts=2 sw=2 et fdm=marker
+    au FileType sh,html :setlocal ts=2 sts=2 sw=2 et
+augroup end
 " }}} Autocmd
 
 " Key Maps {{{
