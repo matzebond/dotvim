@@ -22,7 +22,7 @@ call plug#begin(expand(s:MYVIMDIR . "/bundle"))
 
 " Visual
 Plug 'altercation/vim-colors-solarized'
-" Plug 'oblitum/rainbow'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim'}
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-Startify' " nice startup screen
@@ -129,7 +129,7 @@ set history=100
 set undolevels=100
 
 set wildmenu " <Tab> in menu in vim console brings up suggestions
-set wildmode =longest:full,full
+set wildmode =full,full
 set wildignore+=.hg,.git,svn
 set wildignore+=*.aux,*.out,*.toc " Latex intermediadte files
 set wildignore+=*.o,*.obj,*.bak,*.exe,*.d
@@ -154,7 +154,8 @@ set showmode " show current mode in last line
 set showmatch " got to next match
 set t_Co=16 " conflicting background in vim solarized
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme Tomorrow-Night
 
 highlight clear LineNr " Current line number row will have same background color in relative mode
 
@@ -247,7 +248,7 @@ nnoremap N Nzzzv
 vnoremap Q gq
 nnoremap Q gqap
 
-nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <silent> <leader><space> :nohlsearch<cr>
 
 " make tab movement
 nnoremap <tab> %
