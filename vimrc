@@ -318,7 +318,7 @@ let g:airline#extensions#eclim#enabled = 1
 let g:airline#extensions#quickfix#quickfix_text = 'Quickfix'
 let g:airline#extensions#quickfix#location_text = 'Location'
 
-let g:airline_theme='solarized'
+" let g:airline_theme='solarized'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
