@@ -23,8 +23,10 @@ call plug#begin(expand(s:MYVIMDIR . "/bundle"))
 " Visual
 Plug 'altercation/vim-colors-solarized'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim'}
+Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-Startify' " nice startup screen
 
 " tpope
@@ -36,11 +38,11 @@ Plug 'tpope/vim-abolish'
 
 " util
 Plug 'tmhedberg/matchit' " extended % for various langs
-Plug 'godlygeek/tabular'
 " Plug 'rhysd/clever-f.vim'
-Plug 'helino/vim-json'
+" Plug 'helino/vim-json'
 " Plug 'greyblake/vim-preview'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/vim-easy-align'
 
 " programming
 Plug 'tomtom/tcomment_vim'
@@ -154,8 +156,11 @@ set showmode " show current mode in last line
 set showmatch " got to next match
 set t_Co=16 " conflicting background in vim solarized
 set background=dark
+
 " colorscheme solarized
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
+let g:seoul256_background = 233
+colorscheme seoul256
 
 highlight clear LineNr " Current line number row will have same background color in relative mode
 
