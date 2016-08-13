@@ -1,4 +1,4 @@
-" vim:fdm=marker
+" vim: fdm=marker
 
 let s:MYVIMDIR="~/.vim"
 
@@ -31,7 +31,7 @@ Plug 'mhinz/vim-Startify' " nice startup screen
 
 " tpope
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround' " cis
 " :%Subvert/facilit{y,ies}/bulding{,s}
 " word jump MixedCase (crm) camelCase (crc) snake_case (crs) UPPERE_CASE (cru)
 Plug 'tpope/vim-abolish'
@@ -47,9 +47,9 @@ Plug 'junegunn/vim-easy-align'
 " programming
 Plug 'tomtom/tcomment_vim'
 Plug 'Raimondi/delimitMate'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'scrooloose/syntastic'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Plug 'scrooloose/syntastic'
 " snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
@@ -79,7 +79,7 @@ call plug#end()
 set ttyfast
 let mapleader="," " set <Leader> to ,
 
-let g:tex_flavor="latex" " recognize .tex as latex files
+let g:tex_flavor="latex" " default filetype for .tex = latex
 
 if has('syntax') && !exists('g:syntax_on')
   syntax enable
@@ -89,15 +89,15 @@ endif
 " }}} Init
 
 " VIM Options {{{
+set modeline " allow per file settings in modeline
+
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set history=10000 " expand history normal 20
-set clipboard=unnamed "the clipboard is the default yank, past ... register
 set hidden " Allow buffer switching without saving
 set autoread " auto change files modified outside of vim
 set ignorecase
 set smartcase  " case-sensitive if search contains an uppercase character
 set hlsearch " highlights the search results
-set incsearch " Find as you type search
+set incsearch " find as you type search
 set gdefault " substitutes all by default (:s///g is default)
 set splitright " or set splitbelow
 set tabstop=4 " size of a hard tabstop
@@ -114,8 +114,8 @@ set foldlevel=99
 set linebreak " break lines at 'breakat'
 
 if has('mouse')
-  set mouse=
-  set mousehide
+  set mouse= " disable the mouse in all modes
+  set mousehide " hide mouse while typing (only in gui)
 endif
 
 " backup/persistance settings
@@ -154,7 +154,6 @@ set laststatus=2 " always show statusline"
 set showcmd " display incomplete commands
 set showmode " show current mode in last line
 set showmatch " got to next match
-set t_Co=16 " conflicting background in vim solarized
 set background=dark
 
 " colorscheme solarized
@@ -185,7 +184,7 @@ augroup source_reload
     au bufwritepost vimrc source $MYVIMRC
     au bufwritepost .vimrc source $MYVIMRC
     " autocmd bufwritepost gimrc source $MYGVIMRC
-augroup END
+augroup end
 
 augroup spell_au
     au!
@@ -200,7 +199,8 @@ augroup filetype_tabsize
 augroup end
 " }}} Autocmd
 
-" Key Maps {{{
+" Mappings {{{
+
 " noremap <Up> <NOP>
 " noremap <Down> <NOP>
 " noremap <Left> <NOP>
@@ -304,7 +304,10 @@ nnoremap <silent> <Leader>oK :FSSplitAbove<cr>
 nnoremap <silent> <Leader>oj :FSBelow<cr>
 nnoremap <silent> <Leader>oJ :FSSplitBelow<cr>
 
+" }}} Mappings
+
 " Plugin Config {{{
+
 " airline {{{
 set noshowmode
 let g:airline#extensions#branch#empty_message = "No SCM"
