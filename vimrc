@@ -105,6 +105,7 @@ set softtabstop=4
 set shiftwidth=4 " size of an "indent"
 set autoindent " Indent at the same level of the previous line
 set smartindent " smart auto indenting
+set breakindent " indent wrapped lines
 set smarttab " make "tab" insert indents instead of tabs at the beginning of a line
 set expandtab " always uses spaces instead of tab characters
 " set scrolljump=1 " Lines to scroll when cursor leaves screen
@@ -344,9 +345,9 @@ let g:airline_symbols.readonly = 'ro'
 " }}} airline
 
 " delimitMate {{{
-" let g:delimitMate_matchpairs = "(:),[:],{:},<:>"
 let g:delimitMate_expand_cr = 1
-" let g:delimitMate_eol_marker = ";"
+let g:delimitMate_expand_space = 1
+" let delimitMate_jump_expansion = 1
 " }}} delimitMate
 
 " fswitcher {{{
