@@ -43,6 +43,8 @@ Plug 'tmhedberg/matchit' " extended % for various langs
 " Plug 'greyblake/vim-preview'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/vim-easy-align'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'osyo-manga/vim-over' " visualize substitute cmd
 
 " programming
 Plug 'tomtom/tcomment_vim'
