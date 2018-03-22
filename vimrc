@@ -161,7 +161,7 @@ set background=dark
 
 " colorscheme solarized
 " colorscheme Tomorrow-Night
-let g:seoul256_background = 233
+let g:seoul256_background = 234
 colorscheme seoul256
 
 highlight clear LineNr " Current line number row will have same background color in relative mode
